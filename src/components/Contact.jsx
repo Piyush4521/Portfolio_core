@@ -109,7 +109,7 @@ export default function Contact({ onOpenResume, onShowToast }) {
               <span className="social-card-title">Professional Profiles</span>
               <div className="social-links-grid">
                 <a
-                  href="https://linkedin.com/in/piyushsonawane"
+                  href="https://www.linkedin.com/in/piyushsonawane2145"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-tile linkedin"
@@ -118,7 +118,7 @@ export default function Contact({ onOpenResume, onShowToast }) {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://github.com/PiyushSonawane214"
+                  href="https://github.com/Piyush4521"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-tile github"

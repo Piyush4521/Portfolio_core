@@ -77,6 +77,31 @@ export default function Projects({ onSelectSimulator }) {
       ],
       techStack: ['ESP32', 'Arduino Nano', 'HC-05 Bluetooth', 'L298N Driver', 'DC Motors', 'PWM Firmware'],
       simKey: 'robot'
+    },
+    {
+      id: 'oneops',
+      title: 'OneOps',
+      tagline: 'AI Incident Intelligence & Automated Remediation Platform',
+      category: 'Cloud & Reliability',
+      categoryIcon: 'fa-brain',
+      status: 'Platform Active',
+      flowchart: [
+        { label: 'Incident Detector', icon: 'fa-triangle-exclamation' },
+        { label: 'Node.js & GitHub API', icon: 'fa-server', isController: true },
+        { label: 'Governed Remediation', icon: 'fa-code-pull-request' }
+      ],
+      sensorPills: [
+        { label: 'Diff Verification', icon: 'fa-code-compare' },
+        { label: 'Confidence Checks', icon: 'fa-circle-check' },
+        { label: 'Human Approvals', icon: 'fa-user-shield' }
+      ],
+      bullets: [
+        'Built a software platform connecting incident detection, source analysis, API workflows, evidence validation, and governed remediation for application reliability.',
+        'Integrated Node.js REST APIs, GitHub API, structured data validation, and automated cloud workflows for reliable software operations.',
+        'Implemented confidence checks, source-matched validation, diff verification, and human approval controls to ensure automated workflow safety.'
+      ],
+      techStack: ['Node.js', 'REST APIs', 'GitHub API', 'TypeScript', 'Docker', 'CI/CD'],
+      simKey: 'oneflux'
     }
   ];
 

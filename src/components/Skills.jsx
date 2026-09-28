@@ -63,26 +63,29 @@ export default function Skills() {
       title: 'Programming Languages',
       icon: 'fa-terminal',
       skills: [
-        { name: 'Embedded C', highlight: true },
-        { name: 'C++', highlight: true },
         { name: 'Python', highlight: true },
-        { name: 'JavaScript', highlight: false },
-        { name: 'TypeScript', highlight: false },
+        { name: 'TypeScript', highlight: true },
+        { name: 'JavaScript', highlight: true },
+        { name: 'C / Embedded C', highlight: true },
+        { name: 'C++', highlight: false },
+        { name: 'Java', highlight: false },
         { name: 'SQL', highlight: false }
       ]
     },
     {
-      title: 'Software, Cloud & Tools',
+      title: 'Software, Cloud & Testing',
       icon: 'fa-cloud',
       skills: [
-        'Firebase RTDB',
-        'React.js',
-        'Node.js',
+        'React & Vite',
+        'Node.js & Express',
+        'Supabase & Firebase',
+        'Flutter & Dart',
+        'REST APIs',
         'Git & GitHub',
-        'Docker',
+        'Docker & CI/CD',
         'Linux OS',
-        'KiCad EDA',
-        'PCB Prototyping'
+        'Software Testing',
+        'API Validation'
       ]
     }
   ];

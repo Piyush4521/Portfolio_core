@@ -26,7 +26,7 @@ export default function Experience() {
                   <span className="timeline-badge-internship">INTERNSHIP</span>
                   <h3 className="timeline-role">Software Development Engineer Intern</h3>
                   <h4 className="timeline-org">
-                    <i className="fa-solid fa-building"></i> MCMH
+                    <i className="fa-solid fa-building"></i> MyCare MyHealth (MCMH)
                   </h4>
                 </div>
                 <div className="timeline-date">
@@ -34,9 +34,9 @@ export default function Experience() {
                 </div>
               </div>
               <ul className="timeline-points">
-                <li>Contributed to full-lifecycle application development, backend integration, debugging, testing, and deployment workflows for a real-world software product.</li>
-                <li>Implemented and refined production features using Git-based development practices while collaborating closely in a structured agile engineering workflow.</li>
-                <li>Applied software engineering and DevOps principles to develop reliable, maintainable, and scalable enterprise code.</li>
+                <li>Contributed to full-lifecycle application development, backend integration, feature validation, debugging, testing, and deployment workflows for a real-world software product.</li>
+                <li>Worked with React, TypeScript, Vite, Supabase, Git, and REST API-driven workflows to implement, validate, debug, and improve application features.</li>
+                <li>Collaborated in a structured engineering environment using Git-based development, issue resolution, testing practices, and iterative Agile development workflows.</li>
               </ul>
             </div>
           </div>

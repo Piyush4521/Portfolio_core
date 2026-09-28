@@ -127,7 +127,7 @@ export default function AboutEditorial({ onShowToast }) {
         <div className="editorial-footer-grid">
           <div className="editorial-social-strip">
             <a
-              href="https://github.com/PiyushSonawane214"
+              href="https://github.com/Piyush4521"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon-btn"
@@ -136,7 +136,7 @@ export default function AboutEditorial({ onShowToast }) {
               <i className="fa-brands fa-github"></i>
             </a>
             <a
-              href="https://linkedin.com/in/piyushsonawane"
+              href="https://www.linkedin.com/in/piyushsonawane2145"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon-btn"

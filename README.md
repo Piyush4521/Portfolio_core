@@ -150,6 +150,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Engineer**: Piyush Sonawane
 - **Email**: [piyushsonawane214@gmail.com](mailto:piyushsonawane214@gmail.com)
-- **LinkedIn**: [linkedin.com/in/piyushsonawane](https://linkedin.com/in/piyushsonawane)
+- **LinkedIn**: [linkedin.com/in/piyushsonawane2145](https://www.linkedin.com/in/piyushsonawane2145)
 - **GitHub**: [github.com/Piyush4521](https://github.com/Piyush4521)
 - **Location**: Pune, Maharashtra, India
