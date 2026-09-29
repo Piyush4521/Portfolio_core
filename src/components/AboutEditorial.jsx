@@ -40,35 +40,35 @@ export default function AboutEditorial({ onShowToast }) {
             <div className="role-micro-tag">EMBEDDED & IOT DEVELOPER</div>
           </div>
 
-          <div className="portrait-switcher-controls">
+          <div className="portrait-switcher-controls" role="group" aria-label="Cutout Portrait Selection">
             <span className="portrait-label">
-              <i className="fa-solid fa-camera"></i> Cutout Style:
+              <i className="fa-solid fa-camera"></i> Style:
             </span>
             <button
               type="button"
               className={`portrait-toggle-btn ${activePortrait === 2 ? 'active' : ''}`}
               onClick={() => switchPortrait(2)}
+              aria-pressed={activePortrait === 2}
             >
-              Portrait II (Editorial)
+              <span className="btn-label-desktop">Portrait II (Editorial)</span>
+              <span className="btn-label-mobile">Editorial</span>
             </button>
             <button
               type="button"
               className={`portrait-toggle-btn ${activePortrait === 1 ? 'active' : ''}`}
               onClick={() => switchPortrait(1)}
+              aria-pressed={activePortrait === 1}
             >
-              Portrait I (Executive)
+              <span className="btn-label-desktop">Portrait I (Executive)</span>
+              <span className="btn-label-mobile">Executive</span>
             </button>
-          </div>
-
-          <div className="editorial-copyright-tag">
-            <span>© 2026 Piyush Sonawane · All Rights Reserved</span>
           </div>
         </div>
 
         {/* Center Editorial Stage with Clean Cutout and Layered Signature */}
         <div className="editorial-stage">
           {/* Geometric Accent Circle (from Image 2) */}
-          <div className="editorial-accent-circle" title="System Status: Online">
+          <div className="editorial-accent-circle" title="System Status: Online" aria-hidden="true">
             <span className="accent-inner-dot"></span>
           </div>
 
@@ -101,24 +101,26 @@ export default function AboutEditorial({ onShowToast }) {
             <div className="signature-word last-name">Sonawane</div>
           </div>
 
-          {/* Floating Info Pills around Cutout */}
-          <div className="floating-badge badge-left">
-            <div className="badge-icon">
-              <i className="fa-solid fa-graduation-cap"></i>
+          {/* Floating Info Pills around Cutout (Desktop) / Structured Grid (Mobile) */}
+          <div className="editorial-badges-wrapper">
+            <div className="floating-badge badge-left">
+              <div className="badge-icon">
+                <i className="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div className="badge-info">
+                <strong>NBNSCOE Solapur</strong>
+                <span>B.E. ENTC · 8.43 SGPA</span>
+              </div>
             </div>
-            <div className="badge-info">
-              <strong>NBNSCOE Solapur</strong>
-              <span>B.E. ENTC · 8.43 SGPA</span>
-            </div>
-          </div>
 
-          <div className="floating-badge badge-right">
-            <div className="badge-icon">
-              <i className="fa-solid fa-award"></i>
-            </div>
-            <div className="badge-info">
-              <strong>1x Winner · 2x Top 4</strong>
-              <span>National Hackathons</span>
+            <div className="floating-badge badge-right">
+              <div className="badge-icon">
+                <i className="fa-solid fa-award"></i>
+              </div>
+              <div className="badge-info">
+                <strong>1x Winner · 2x Top 4</strong>
+                <span>National Hackathons</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Workstation from './Workstation';
 
-export default function Hero({ currentTheme, onThemeChange }) {
+export default function Hero({ currentTheme, onThemeChange, colorMode, onToggleColorMode }) {
   const handleScrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -102,7 +102,12 @@ export default function Hero({ currentTheme, onThemeChange }) {
         </div>
 
         {/* 3D Developer & Embedded Hardware Workstation */}
-        <Workstation currentTheme={currentTheme} onThemeChange={onThemeChange} />
+        <Workstation
+          currentTheme={currentTheme}
+          onThemeChange={onThemeChange}
+          colorMode={colorMode}
+          onToggleColorMode={onToggleColorMode}
+        />
 
         {/* Animated Mouse Scroll Pill */}
         <div className="hero-scroll-indicator">

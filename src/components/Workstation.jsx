@@ -90,7 +90,7 @@ class GestureRobotController(Node):
   }
 };
 
-export default function Workstation({ currentTheme, onThemeChange }) {
+export default function Workstation({ currentTheme, onThemeChange, colorMode = 'dark', onToggleColorMode }) {
   const [activeTab, setActiveTab] = useState('esp32');
   const [logs, setLogs] = useState([
     '[BOOT] ESP32-WROOM-32 booting core 1 @ 240MHz...',
@@ -139,20 +139,38 @@ export default function Workstation({ currentTheme, onThemeChange }) {
   return (
     <div className="workstation-wrapper">
       <div className="workstation-controls">
-        <span className="ctrl-label">
-          <i className="fa-solid fa-palette"></i> Setup Theme:
-        </span>
-        <div className="theme-swatches">
-          {themes.map((t) => (
+        <div className="workstation-ctrl-group">
+          <span className="ctrl-label">
+            <i className="fa-solid fa-palette"></i> Theme Accent:
+          </span>
+          <div className="theme-swatches">
+            {themes.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                className={`swatch-btn ${currentTheme === t.id ? 'active' : ''}`}
+                style={{ '--c': t.color }}
+                onClick={() => onThemeChange(t.id)}
+                title={t.label}
+              />
+            ))}
+          </div>
+          {onToggleColorMode && (
             <button
-              key={t.id}
               type="button"
-              className={`swatch-btn ${currentTheme === t.id ? 'active' : ''}`}
-              style={{ '--c': t.color }}
-              onClick={() => onThemeChange(t.id)}
-              title={t.label}
-            />
-          ))}
+              className="swatch-mode-toggle"
+              onClick={onToggleColorMode}
+              title={`Switch to ${colorMode === 'dark' ? 'Light' : 'Dark'} Mode`}
+              aria-label={`Switch to ${colorMode === 'dark' ? 'Light' : 'Dark'} Mode`}
+            >
+              {colorMode === 'dark' ? (
+                <i className="fa-solid fa-sun icon-sun-swatch"></i>
+              ) : (
+                <i className="fa-solid fa-moon icon-moon-swatch"></i>
+              )}
+              <span>{colorMode === 'dark' ? 'Light' : 'Dark'}</span>
+            </button>
+          )}
         </div>
 
         <div className="code-tab-switchers">

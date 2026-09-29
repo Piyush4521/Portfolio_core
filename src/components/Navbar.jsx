@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Navbar({ onOpenResume }) {
+export default function Navbar({ onOpenResume, colorMode = 'dark', onToggleColorMode }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -72,9 +72,42 @@ export default function Navbar({ onOpenResume }) {
               </a>
             </li>
           ))}
+          <li className="mobile-only-theme-toggle">
+            <button
+              type="button"
+              className="btn-theme-toggle-mobile"
+              onClick={() => {
+                if (onToggleColorMode) onToggleColorMode();
+                setMobileMenuOpen(false);
+              }}
+              aria-label={`Switch to ${colorMode === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              <span className="theme-toggle-pill">
+                {colorMode === 'dark' ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}
+              </span>
+              <span>Theme: <strong>{colorMode === 'dark' ? 'Dark (Tap for Light)' : 'Light (Tap for Dark)'}</strong></span>
+            </button>
+          </li>
         </ul>
 
         <div className="nav-actions">
+          <button
+            type="button"
+            className="btn-theme-toggle"
+            onClick={onToggleColorMode}
+            aria-label={`Switch to ${colorMode === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${colorMode === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            <span className="theme-toggle-pill">
+              {colorMode === 'dark' ? (
+                <i className="fa-solid fa-sun icon-sun"></i>
+              ) : (
+                <i className="fa-solid fa-moon icon-moon"></i>
+              )}
+            </span>
+            <span className="theme-toggle-label">{colorMode === 'dark' ? 'Light' : 'Dark'}</span>
+          </button>
+
           <button
             type="button"
             className="btn-resume-nav"

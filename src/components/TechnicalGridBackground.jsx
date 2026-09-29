@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export default function TechnicalGridBackground() {
+export default function TechnicalGridBackground({ colorMode = 'dark' }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -15,14 +15,17 @@ export default function TechnicalGridBackground() {
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      render();
     };
     window.addEventListener('resize', handleResize);
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
+      const isLight = colorMode === 'light';
+
       // Subtle CAD-style engineering dot grid
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.fillStyle = isLight ? 'rgba(15, 23, 42, 0.07)' : 'rgba(255, 255, 255, 0.04)';
       const spacing = 36;
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
@@ -33,10 +36,10 @@ export default function TechnicalGridBackground() {
       }
 
       // Subtle engineering blueprint axis lines
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.03)';
+      ctx.strokeStyle = isLight ? 'rgba(2, 132, 199, 0.08)' : 'rgba(56, 189, 248, 0.03)';
       ctx.lineWidth = 1;
 
-      // Subtle vertical guide
+      // Subtle vertical guides
       ctx.beginPath();
       ctx.moveTo(width * 0.15, 0);
       ctx.lineTo(width * 0.15, height);
@@ -51,7 +54,7 @@ export default function TechnicalGridBackground() {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [colorMode]);
 
   return <canvas id="engineering-canvas" ref={canvasRef} />;
 }

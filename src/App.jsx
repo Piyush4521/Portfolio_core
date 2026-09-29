@@ -15,14 +15,33 @@ import Toast from './components/Toast';
 
 export default function App() {
   const [theme, setTheme] = useState('cyan');
+  const [colorMode, setColorMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem('portfolio-color-mode');
+      if (saved === 'light' || saved === 'dark') return saved;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+        ? 'light'
+        : 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
   const [resumeOpen, setResumeOpen] = useState(false);
   const [legalModal, setLegalModal] = useState(null); // 'privacy' | 'terms' | null
   const [activeSim, setActiveSim] = useState('oneguard');
   const [toasts, setToasts] = useState([]);
 
   useEffect(() => {
-    document.body.className = `theme-${theme}`;
-  }, [theme]);
+    try {
+      localStorage.setItem('portfolio-color-mode', colorMode);
+    } catch {
+      // ignore
+    }
+    document.documentElement.setAttribute('data-theme', colorMode);
+    document.documentElement.setAttribute('data-accent', theme);
+    document.documentElement.className = `theme-${theme} mode-${colorMode}`;
+    document.body.className = `theme-${theme} ${colorMode}-mode`;
+  }, [colorMode, theme]);
 
   const showToast = (message) => {
     const id = Date.now() + Math.random();
@@ -30,6 +49,14 @@ export default function App() {
     setTimeout(() => {
       setToasts((prev) => prev.filter((t) => t.id !== id));
     }, 3200);
+  };
+
+  const toggleColorMode = () => {
+    setColorMode((prev) => {
+      const next = prev === 'dark' ? 'light' : 'dark';
+      showToast(next === 'light' ? 'Switched to Crisp Light Mode ☀️' : 'Switched to Technical Dark Mode 🌙');
+      return next;
+    });
   };
 
   const handleSelectSimulator = (simKey) => {
@@ -40,12 +67,21 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
-      <TechnicalGridBackground />
+      <TechnicalGridBackground colorMode={colorMode} />
 
-      <Navbar onOpenResume={() => setResumeOpen(true)} />
+      <Navbar
+        onOpenResume={() => setResumeOpen(true)}
+        colorMode={colorMode}
+        onToggleColorMode={toggleColorMode}
+      />
 
       <main>
-        <Hero currentTheme={theme} onThemeChange={(t) => setTheme(t)} />
+        <Hero
+          currentTheme={theme}
+          onThemeChange={(t) => setTheme(t)}
+          colorMode={colorMode}
+          onToggleColorMode={toggleColorMode}
+        />
         <AboutEditorial onShowToast={showToast} />
         <Projects onSelectSimulator={handleSelectSimulator} />
         <IoTLab
